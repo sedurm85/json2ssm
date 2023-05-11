@@ -128,8 +128,12 @@ func (s *SSMStorage) Export(path string, decrypt bool) (interface{}, error) {
 
 	tree := make(map[string]interface{})
 
-	for k, v := range values {
+	/*for k, v := range values {
 		tree[strings.TrimPrefix(k, path)] = v
+	}*/
+
+	for k, v := range values {
+		tree[k] = v
 	}
 
 	return s.unflattern(tree)
